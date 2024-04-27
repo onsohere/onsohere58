@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bakiye Kazan</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  #secenekler {
+    margin-top: 20px;
+  }
+  .secenekButon {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s;
+  }
+  .secenekButon:hover {
+    background-color: #45a049;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Bakiye Kazan Seçenekler</h1>
+  <div id="secenekler">
+    <button class="secenekButon" onclick="siteyeYonlendir(1)">Kolay link + 10 bakiye</button>
+    <button class="secenekButon" onclick="siteyeYonlendir(2)">Zor link +20 bakiye</button>
+    <br>
+    <button class="secenekButon" onclick="siteyeYonlendir(3)">Anasayfa</button>
+  </div>
+</div>
+<script>
+  // Butona tekrar basılmasını engellemek için sınırlama
+  let butonaBasilabilir = true;
+
+  // Rastgele bir siteye yönlendirme fonksiyonu
+  function siteyeYonlendir(secenek) {
+    if (butonaBasilabilir) {
+      let siteListesi = [];
+      switch (secenek) {
+        case 1:
+          siteListesi = ['https://ay.live/j9AZ9', 'https://ay.live/d5xqsg', 'https://ay.live/UlUhW', 'https://ay.live/1kbfbI', 'https://ay.live/g9PEfy', 'https://ay.live/OUbdGQ', 'https://ay.live/yiXQ'];
+          break;
+        case 2:
+          siteListesi = ['https://linkperisi.com/go/elm808', 'https://linkperisi.com/go/q48vio', 'https://linkperisi.com/go/vafqy1', 'https://linkperisi.com/go/c818hv', 'https://linkperisi.com/go/gfvve4	', 'https://linkperisi.com/go/aiploh', 'https://linkperisi.com/go/4mtgmn'];
+          break;
+        case 3:
+          siteListesi = ['index.html'];
+          break;
+        default:
+          break;
+      }
+
+      // Rasgele bir siteye yönlendir
+      let randomIndex = Math.floor(Math.random() * siteListesi.length);
+      window.location = siteListesi[randomIndex];
+
+      // Butona tekrar basılmasını engelle ve 60 saniye sonra serbest bırak
+      butonaBasilabilir = false;
+      setTimeout(() => {
+        butonaBasilabilir = true;
+      }, 60000);
+    }
+  }
+</script>
+</body>
+</html>
